@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Latest news and charts - World Trends">
+        <meta name="keywords" content="news, charts, trends, world">
+        <meta name="author" content="World Trends">
+        
+        <title>News</title>
+        <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="wrapper">
+                <div class="header-logo">
+                    <a href="./index.html">
+                        <img src="assets/logoType.svg" alt="World Trends" />
+                    </a>
+                </div>
+                <nav class="header-menu" role="navigation" aria-label="Main menu">
+                    <a class="header-menu-item" href="charts.html" aria-current="false">Charts</a>
+                    <a class="header-menu-item active" href="index.html" aria-current="true">News</a>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <div class="wrapper">
+                <div class="page-loader" style="display:none;" role="status" aria-live="polite" aria-label="Page loading">
+                    <div class="spinner" aria-hidden="true"></div>
+                </div>
+                <div class="news-main-row">
+                </div>
+                <section class="all-news-section" aria-labelledby="latest-news-title">
+                  <h2 class="all-news-title" id="latest-news-title">Latest News</h2>
+                  <div class="all-news-grid" role="grid" aria-label="News grid"></div>
+                  <div class="all-news-loader" style="display:none;" role="status" aria-live="polite" aria-label="Loading additional news">
+                    <div class="spinner" aria-hidden="true"></div>
+                  </div>
+                  <button class="all-news-more-btn" aria-label="Load more news">Read more</button>
+                </section>
+            </div>
+        </main>
+        <script>
+            window.MOCK_DATA = {
+                "totalArticles": 28,
+                "articles": [
+                    {
+                        "id": "e7eee8a1f084e920bb892a89aa9019b8",
+                        "title": "North American rhinos once gathered in large, hippo-like herds",
+                        "description": "The stumpy-legged rhinos survived until about 12 million years ago, when a supervolcano's ashfall smothered their world.",
+                        "content": "Millions of years ago in what's now the U.S. Midwest, watering holes and rivers were home to huge herds of stumpy-legged rhinos. While most rhinos today prefer a solo lifestyle, these ancient party animals formed big herds. They also stuck close to h... [3490 chars]",
+                        "url": "https://www.snexplores.org/article/fossil-american-rhino-herds-nebraska",
+                        "image": "https://www.snexplores.org/wp-content/uploads/2025/04/041725_jb_ancient-rhinos_feat.jpg",
+                        "publishedAt": "2025-07-30T10:30:00Z",
+                        "source": {
+                            "id": "3b7752314817dd6c6625e609e562b990",
+                            "name": "Science News Explores",
+                            "url": "https://www.snexplores.org"
+                        }
+                    },
+                    {
+                        "id": "60cfefee9cc3640b12094a4f00f036a0",
+                        "title": "Digital Health Unplugged: Mobile technology in healthcare",
+                        "description": "This episode, in partnership with Digital Health Networks sponsor Imprivata, focuses on all things mobile technology in healthcare.",
+                        "content": "This podcast episode, in partnership with Digital Health Networks sponsor Imprivata, focuses on all things mobile technology in healthcare.\nHost Jordan Sollof, reporter at Digital Heath News, is joined by Louise Clarkson, chief nursing information of... [1409 chars]",
+                        "url": "https://www.digitalhealth.net/2025/07/digital-health-unplugged-mobile-technology-in-healthcare/",
+                        "image": "https://www.digitalhealth.net/wp-content/uploads/2025/07/Digital-Health-Podcast-Episode-104-Header.jpg",
+                        "publishedAt": "2025-07-30T10:02:39Z",
+                        "source": {
+                            "id": "9ad5e04bf716d7e8cad6b2bae48eda4a",
+                            "name": "Home | Digital Health",
+                            "url": "https://www.digitalhealth.net"
+                        }
+                    },
+                    {
+                        "id": "e081e26c536acf27f66102bcdd336840",
+                        "title": "Stock market today: Live updates",
+                        "description": "The S&P 500 snapped a win streak on Tuesday.",
+                        "content": "Traders work on the floor at the New York Stock Exchange (NYSE) in New York City, U.S., July 25, 2025.\nStock futures were inched higher Wednesday as investors analyzed earnings reports and awaited the Federal Reserve's interest rate decision.\nFutures... [2192 chars]",
+                        "url": "https://www.cnbc.com/2025/07/29/stock-market-today-live-updates.html",
+                        "image": "https://image.cnbcfm.com/api/v1/image/108177148-17534560482025-07-25t150540z_659622175_rc2ptfahmlxi_rtrmadp_0_usa-stocks.jpeg?v=1753456136&w=1920&h=1080",
+                        "publishedAt": "2025-07-30T10:01:00Z",
+                        "source": {
+                            "id": "32c2ad3fb41cb87b5b847d750028dff0",
+                            "name": "CNBC",
+                            "url": "https://www.cnbc.com"
+                        }
+                    },
+                    {
+                        "id": "18a94983544c67012e1480059883e0b4",
+                        "title": "Tsunami waves hit Hawaii, Japan after Russia quake: What we know so far",
+                        "description": "A magnitude 8.8 quake hit Russia's Kamchatka Peninsula, prompting tsunami warnings as far away as the US West Coast.",
+                        "content": "A magnitude 8.8 quake hit Russia's Kamchatka Peninsula, prompting tsunami warnings as far away as the US West Coast.\nTsunami warnings and advisories have been issued for several countries with Pacific coastlines, including Japan, after a massive eart... [7522 chars]",
+                        "url": "https://www.aljazeera.com/news/2025/7/30/tsunami-waves-hit-hawaii-japan-after-russia-quake-what-we-know-so-far",
+                        "image": "https://www.aljazeera.com/wp-content/uploads/2025/07/AFP__20250730__68A939F__v1__HighRes__RussiaEarthquakeTsunami-1753864535.jpg?resize=1920%2C1125",
+                        "publishedAt": "2025-07-30T10:00:44Z",
+                        "source": {
+                            "id": "7530d90c9af769eda4cb548f32ed381d",
+                            "name": "Al Jazeera",
+                            "url": "https://www.aljazeera.com"
+                        }
+                    },
+                    {
+                        "id": "935bbc8934da8a57d6b24ec5aa03b9c3",
+                        "title": "Hubble Space Telescope spots rogue planet with a little help from Einstein: 'It was a lucky break'",
+                        "description": "Using the Hubble Space Telescope, astronomers have discovered a new rogue planet that was orphaned from its home planetary system. The discovery was possible with a little luck and some help from Einstein.",
+                        "content": "(Main) An illustration of a rogue planet causing gravitational lensing (Inset) The Hubble Space Telescope in orbit around Earth.\nAstronomers discovered a new rogue planet lurking in archival data gathered by the Hubble Space Telescope, and the find i... [6971 chars]",
+                        "url": "https://www.space.com/astronomy/exoplanets/hubble-space-telescope-spots-rogue-planet-with-a-little-help-from-einstein-it-was-a-lucky-break",
+                        "image": "https://cdn.mos.cms.futurecdn.net/otyZ9XjeBPGLxX4JF2qLSX.png",
+                        "publishedAt": "2025-07-30T10:00:00Z",
+                        "source": {
+                            "id": "024dd4370bda9e6e6791231c2a935d20",
+                            "name": "Space",
+                            "url": "https://www.space.com"
+                        }
+                    },
+                    {
+                        "id": "b3883c6118be8f8cbb924045fa22b089",
+                        "title": "What to know about Toronto Caribbean Carnival's Grand Parade",
+                        "description": "The Grand Parade at Toronto Caribbean Carnival takes place on Aug. 2 and will feature thousands of \"masqueraders in colourful and striking costumes.\"",
+                        "content": "Weather Alert\nTake action to protect yourself and others – extreme heat can affect everyone's health. Determine if you or others around you are at greater risk of heat illness. Check on older adults, those living alone and other at-risk people in-per... [2142 chars]",
+                        "url": "https://www.toronto.com/things-to-do/the-toronto-caribbean-carnivals-colourful-grand-parade-is-this-weekend-and-heres-what-to-know/article_f1db6d85-8a74-585c-908c-e68a36d08147.html",
+                        "image": "https://bloximages.newyork1.vip.townnews.com/toronto.com/content/tncms/assets/v3/editorial/9/92/992de93b-eb33-5b2b-8484-e6163b4b6593/6887c1da9de58.image.jpg?crop=1763%2C926%2C0%2C124&resize=1200%2C630&order=crop%2Cresize",
+                        "publishedAt": "2025-07-30T10:00:00Z",
+                        "source": {
+                            "id": "fe24ef4274d8e24e34a6bb138348bce5",
+                            "name": "Toronto.com",
+                            "url": "https://www.toronto.com"
+                        }
+                    },
+                    {
+                    "id": "834d4e1b20b84fb8b238fa0d4fc35e94",
+                    "title": "National Lottery to SHUT DOWN for 2 days with players unable to buy tickets or claim prizes - exact dates to remember",
+                    "description": "THE National Lottery will shut down for two days to make way for the biggest technology upgrade in the game's 31-year history.Players have been warned",
+                    "content": "THE National Lottery will shut down for two days to make way for the biggest technology upgrade in the game's 31-year history.\nPlayers have been warned that they will not be able to purchase tickets or check numbers in shops across the UK this weeken... [3326 chars]",
+                    "url": "https://www.thesun.co.uk/money/36076584/national-lottery-shutdown-ticket-prize-claim/",
+                    "image": "https://www.thesun.co.uk/wp-content/uploads/2025/07/newspress-collage-9822rdmz5-1753869322871.jpg?1753872939&strip=all&quality=100&w=1920&h=1080&crop=1",
+                    "publishedAt": "2025-07-30T09:56:16Z",
+                        "source": {
+                            "id": "8312b3960d99553247ab475ee7eeed9a",
+                            "name": "The Sun",
+                            "url": "https://www.thesun.co.uk"
+                        }
+                    },
+                    {
+                    "id": "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6",
+                    "title": "Artificial Intelligence Revolutionizes Healthcare Industry",
+                    "description": "New AI-powered diagnostic tools are transforming how doctors detect and treat diseases, leading to faster and more accurate medical decisions.",
+                    "content": "The healthcare industry is experiencing a revolutionary transformation thanks to artificial intelligence. New AI-powered diagnostic tools are helping doctors detect diseases earlier and with greater accuracy than ever before.\n\nThese advanced systems can analyze... [2500 chars]",
+                    "url": "https://www.healthcare-ai-news.com/ai-revolutionizes-healthcare",
+                    "image": "https://example.com/ai-healthcare-image.jpg",
+                    "publishedAt": "2025-07-30T09:30:00Z",
+                        "source": {
+                            "id": "healthcare-ai-news",
+                            "name": "Healthcare AI News",
+                            "url": "https://www.healthcare-ai-news.com"
+                        }
+                    },
+                    {
+                    "id": "b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7",
+                    "title": "Renewable Energy Surpasses Fossil Fuels in Global Capacity",
+                    "description": "For the first time in history, renewable energy sources have exceeded fossil fuel capacity worldwide, marking a major milestone in the energy transition.",
+                    "content": "In a historic milestone for the global energy sector, renewable energy sources have officially surpassed fossil fuel capacity worldwide. This achievement represents a significant step forward in the global transition to sustainable energy.\n\nThe data shows... [2800 chars]",
+                    "url": "https://www.energy-transition-news.com/renewables-surpass-fossil-fuels",
+                    "image": "https://example.com/renewable-energy-image.jpg",
+                    "publishedAt": "2025-07-30T09:15:00Z",
+                        "source": {
+                            "id": "energy-transition-news",
+                            "name": "Energy Transition News",
+                            "url": "https://www.energy-transition-news.com"
+                        }
+                    },
+                    {
+                    "id": "c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8",
+                    "title": "Space Tourism Takes Off with First Commercial Flight",
+                    "description": "The era of commercial space travel has officially begun as the first paying customers board a spacecraft for a journey beyond Earth's atmosphere.",
+                    "content": "Space tourism has officially taken off with the launch of the first commercial space flight carrying paying customers. This historic moment marks the beginning of a new era in space travel, making the cosmos accessible to private citizens.\n\nThe flight... [3200 chars]",
+                    "url": "https://www.space-tourism-news.com/first-commercial-flight",
+                    "image": "https://example.com/space-tourism-image.jpg",
+                    "publishedAt": "2025-07-30T09:00:00Z",
+                        "source": {
+                            "id": "space-tourism-news",
+                            "name": "Space Tourism News",
+                            "url": "https://www.space-tourism-news.com"
+                        }
+                    },
+                    {
+                        "id": "e7eee8a1f084e920bb892a89aa9019b8",
+                        "title": "North American rhinos once gathered in large, hippo-like herds",
+                        "description": "The stumpy-legged rhinos survived until about 12 million years ago, when a supervolcano’s ashfall smothered their world.",
+                        "content": "Millions of years ago in what’s now the U.S. Midwest, watering holes and rivers were home to huge herds of stumpy-legged rhinos. While most rhinos today prefer a solo lifestyle, these ancient party animals formed big herds. They also stuck close to h... [3490 chars]",
+                        "url": "https://www.snexplores.org/article/fossil-american-rhino-herds-nebraska",
+                        "image": "https://www.snexplores.org/wp-content/uploads/2025/04/041725_jb_ancient-rhinos_feat.jpg",
+                        "publishedAt": "2025-07-30T10:30:00Z",
+                        "source": {
+                            "id": "3b7752314817dd6c6625e609e562b990",
+                            "name": "Science News Explores",
+                            "url": "https://www.snexplores.org"
+                        }
+                    },
+                    {
+                        "id": "60cfefee9cc3640b12094a4f00f036a0",
+                        "title": "Digital Health Unplugged: Mobile technology in healthcare",
+                        "description": "This episode, in partnership with Digital Health Networks sponsor Imprivata, focuses on all things mobile technology in healthcare.",
+                        "content": "This podcast episode, in partnership with Digital Health Networks sponsor Imprivata, focuses on all things mobile technology in healthcare.\nHost Jordan Sollof, reporter at Digital Heath News, is joined by Louise Clarkson, chief nursing information of... [1409 chars]",
+                        "url": "https://www.digitalhealth.net/2025/07/digital-health-unplugged-mobile-technology-in-healthcare/",
+                        "image": "https://www.digitalhealth.net/wp-content/uploads/2025/07/Digital-Health-Podcast-Episode-104-Header.jpg",
+                        "publishedAt": "2025-07-30T10:02:39Z",
+                        "source": {
+                            "id": "9ad5e04bf716d7e8cad6b2bae48eda4a",
+                            "name": "Home | Digital Health",
+                            "url": "https://www.digitalhealth.net"
+                        }
+                    },
+                    {
+                        "id": "e081e26c536acf27f66102bcdd336840",
+                        "title": "Stock market today: Live updates",
+                        "description": "The S&P 500 snapped a win streak on Tuesday.",
+                        "content": "Traders work on the floor at the New York Stock Exchange (NYSE) in New York City, U.S., July 25, 2025.\nStock futures were inched higher Wednesday as investors analyzed earnings reports and awaited the Federal Reserve's interest rate decision.\nFutures... [2192 chars]",
+                        "url": "https://www.cnbc.com/2025/07/29/stock-market-today-live-updates.html",
+                        "image": "https://image.cnbcfm.com/api/v1/image/108177148-17534560482025-07-25t150540z_659622175_rc2ptfahmlxi_rtrmadp_0_usa-stocks.jpeg?v=1753456136&w=1920&h=1080",
+                        "publishedAt": "2025-07-30T10:01:00Z",
+                        "source": {
+                            "id": "32c2ad3fb41cb87b5b847d750028dff0",
+                            "name": "CNBC",
+                            "url": "https://www.cnbc.com"
+                        }
+                    },
+                    {
+                        "id": "18a94983544c67012e1480059883e0b4",
+                        "title": "Tsunami waves hit Hawaii, Japan after Russia quake: What we know so far",
+                        "description": "A magnitude 8.8 quake hit Russia’s Kamchatka Peninsula, prompting tsunami warnings as far away as the US West Coast.",
+                        "content": "A magnitude 8.8 quake hit Russia’s Kamchatka Peninsula, prompting tsunami warnings as far away as the US West Coast.\nTsunami warnings and advisories have been issued for several countries with Pacific coastlines, including Japan, after a massive eart... [7522 chars]",
+                        "url": "https://www.aljazeera.com/news/2025/7/30/tsunami-waves-hit-hawaii-japan-after-russia-quake-what-we-know-so-far",
+                        "image": "https://www.aljazeera.com/wp-content/uploads/2025/07/AFP__20250730__68A939F__v1__HighRes__RussiaEarthquakeTsunami-1753864535.jpg?resize=1920%2C1125",
+                        "publishedAt": "2025-07-30T10:00:44Z",
+                        "source": {
+                            "id": "7530d90c9af769eda4cb548f32ed381d",
+                            "name": "Al Jazeera",
+                            "url": "https://www.aljazeera.com"
+                        }
+                    },
+                    {
+                        "id": "935bbc8934da8a57d6b24ec5aa03b9c3",
+                        "title": "Hubble Space Telescope spots rogue planet with a little help from Einstein: 'It was a lucky break'",
+                        "description": "Using the Hubble Space Telescope, astronomers have discovered a new rogue planet that was orphaned from its home planetary system. The discovery was possible with a little luck and some help from Einstein.",
+                        "content": "(Main) An illustration of a rogue planet causing gravitational lensing (Inset) The Hubble Space Telescope in orbit around Earth.\nAstronomers discovered a new rogue planet lurking in archival data gathered by the Hubble Space Telescope, and the find i... [6971 chars]",
+                        "url": "https://www.space.com/astronomy/exoplanets/hubble-space-telescope-spots-rogue-planet-with-a-little-help-from-einstein-it-was-a-lucky-break",
+                        "image": "https://cdn.mos.cms.futurecdn.net/otyZ9XjeBPGLxX4JF2qLSX.png",
+                        "publishedAt": "2025-07-30T10:00:00Z",
+                        "source": {
+                            "id": "024dd4370bda9e6e6791231c2a935d20",
+                            "name": "Space",
+                            "url": "https://www.space.com"
+                        }
+                    },
+                    {
+                        "id": "b3883c6118be8f8cbb924045fa22b089",
+                        "title": "What to know about Toronto Caribbean Carnival’s Grand Parade",
+                        "description": "The Grand Parade at Toronto Caribbean Carnival takes place on Aug. 2 and will feature thousands of “masqueraders in colourful and striking costumes.”",
+                        "content": "Weather Alert\nTake action to protect yourself and others – extreme heat can affect everyone’s health. Determine if you or others around you are at greater risk of heat illness. Check on older adults, those living alone and other at-risk people in-per... [2142 chars]",
+                        "url": "https://www.toronto.com/things-to-do/the-toronto-caribbean-carnivals-colourful-grand-parade-is-this-weekend-and-heres-what-to-know/article_f1db6d85-8a74-585c-908c-e68a36d08147.html",
+                        "image": "https://bloximages.newyork1.vip.townnews.com/toronto.com/content/tncms/assets/v3/editorial/9/92/992de93b-eb33-5b2b-8484-e6163b4b6593/6887c1da9de58.image.jpg?crop=1763%2C926%2C0%2C124&resize=1200%2C630&order=crop%2Cresize",
+                        "publishedAt": "2025-07-30T10:00:00Z",
+                        "source": {
+                            "id": "fe24ef4274d8e24e34a6bb138348bce5",
+                            "name": "Toronto.com",
+                            "url": "https://www.toronto.com"
+                        }
+                    },
+                    {
+                        "id": "834d4e1b20b84fb8b238fa0d4fc35e94",
+                        "title": "National Lottery to SHUT DOWN for 2 days with players unable to buy tickets or claim prizes - exact dates to remember",
+                        "description": "THE National Lottery will shut down for two days to make way for the biggest technology upgrade in the game's 31-year history.Players have been warned",
+                        "content": "THE National Lottery will shut down for two days to make way for the biggest technology upgrade in the game's 31-year history.\nPlayers have been warned that they will not be able to purchase tickets or check numbers in shops across the UK this weeken... [3326 chars]",
+                        "url": "https://www.thesun.co.uk/money/36076584/national-lottery-shutdown-ticket-prize-claim/",
+                        "image": "https://www.thesun.co.uk/wp-content/uploads/2025/07/newspress-collage-9822rdmz5-1753869322871.jpg?1753872939&strip=all&quality=100&w=1920&h=1080&crop=1",
+                        "publishedAt": "2025-07-30T09:56:16Z",
+                        "source": {
+                            "id": "8312b3960d99553247ab475ee7eeed9a",
+                            "name": "The Sun",
+                            "url": "https://www.thesun.co.uk"
+                        }
+                    },
+                    {
+                        "id": "3081c4761b78766310df2751b3193982",
+                        "title": "Gibo, Brawner appeal to Congress: Amend AFP modernization law",
+                        "description": "Department of National Defense (DND) Secretary Gilberto Teodoro Jr. and Armed Forces of the Philippines (AFP) Chief, General Romeo Brawner Jr. urged the...",
+                        "content": "Defense Secretary Gilberto Teodoro Jr. urges the Congress to amend the Armed Forces of the Philippines (AFP) Modernization Act during the second day of the post-SONA discussions in San Juan City on July 30, 2025. (Photo: Martin A. Sadongdong/MANILA B... [3914 chars]",
+                        "url": "https://mb.com.ph/2025/07/30/gibo-brawner-appeal-to-congress-amend-afp-modernization-law",
+                        "image": "https://mb.com.ph/manilabulletin/uploads/images/2025/07/30/30798.webp",
+                        "publishedAt": "2025-07-30T09:55:45Z",
+                        "source": {
+                            "id": "4041b9d9c6df9db2245d952224650739",
+                            "name": "Manila Bulletin",
+                            "url": "https://mb.com.ph"
+                        }
+                    },
+                    {
+                        "id": "e7eee8a1f084e920bb892a89aa9019b8",
+                        "title": "North American rhinos once gathered in large, hippo-like herds",
+                        "description": "The stumpy-legged rhinos survived until about 12 million years ago, when a supervolcano’s ashfall smothered their world.",
+                        "content": "Millions of years ago in what’s now the U.S. Midwest, watering holes and rivers were home to huge herds of stumpy-legged rhinos. While most rhinos today prefer a solo lifestyle, these ancient party animals formed big herds. They also stuck close to h... [3490 chars]",
+                        "url": "https://www.snexplores.org/article/fossil-american-rhino-herds-nebraska",
+                        "image": "https://www.snexplores.org/wp-content/uploads/2025/04/041725_jb_ancient-rhinos_feat.jpg",
+                        "publishedAt": "2025-07-30T10:30:00Z",
+                        "source": {
+                            "id": "3b7752314817dd6c6625e609e562b990",
+                            "name": "Science News Explores",
+                            "url": "https://www.snexplores.org"
+                        }
+                    },
+                    {
+                        "id": "60cfefee9cc3640b12094a4f00f036a0",
+                        "title": "Digital Health Unplugged: Mobile technology in healthcare",
+                        "description": "This episode, in partnership with Digital Health Networks sponsor Imprivata, focuses on all things mobile technology in healthcare.",
+                        "content": "This podcast episode, in partnership with Digital Health Networks sponsor Imprivata, focuses on all things mobile technology in healthcare.\nHost Jordan Sollof, reporter at Digital Heath News, is joined by Louise Clarkson, chief nursing information of... [1409 chars]",
+                        "url": "https://www.digitalhealth.net/2025/07/digital-health-unplugged-mobile-technology-in-healthcare/",
+                        "image": "https://www.digitalhealth.net/wp-content/uploads/2025/07/Digital-Health-Podcast-Episode-104-Header.jpg",
+                        "publishedAt": "2025-07-30T10:02:39Z",
+                        "source": {
+                            "id": "9ad5e04bf716d7e8cad6b2bae48eda4a",
+                            "name": "Home | Digital Health",
+                            "url": "https://www.digitalhealth.net"
+                        }
+                    },
+                    {
+                        "id": "e081e26c536acf27f66102bcdd336840",
+                        "title": "Stock market today: Live updates",
+                        "description": "The S&P 500 snapped a win streak on Tuesday.",
+                        "content": "Traders work on the floor at the New York Stock Exchange (NYSE) in New York City, U.S., July 25, 2025.\nStock futures were inched higher Wednesday as investors analyzed earnings reports and awaited the Federal Reserve's interest rate decision.\nFutures... [2192 chars]",
+                        "url": "https://www.cnbc.com/2025/07/29/stock-market-today-live-updates.html",
+                        "image": "https://image.cnbcfm.com/api/v1/image/108177148-17534560482025-07-25t150540z_659622175_rc2ptfahmlxi_rtrmadp_0_usa-stocks.jpeg?v=1753456136&w=1920&h=1080",
+                        "publishedAt": "2025-07-30T10:01:00Z",
+                        "source": {
+                            "id": "32c2ad3fb41cb87b5b847d750028dff0",
+                            "name": "CNBC",
+                            "url": "https://www.cnbc.com"
+                        }
+                    },
+                    {
+                        "id": "18a94983544c67012e1480059883e0b4",
+                        "title": "Tsunami waves hit Hawaii, Japan after Russia quake: What we know so far",
+                        "description": "A magnitude 8.8 quake hit Russia’s Kamchatka Peninsula, prompting tsunami warnings as far away as the US West Coast.",
+                        "content": "A magnitude 8.8 quake hit Russia’s Kamchatka Peninsula, prompting tsunami warnings as far away as the US West Coast.\nTsunami warnings and advisories have been issued for several countries with Pacific coastlines, including Japan, after a massive eart... [7522 chars]",
+                        "url": "https://www.aljazeera.com/news/2025/7/30/tsunami-waves-hit-hawaii-japan-after-russia-quake-what-we-know-so-far",
+                        "image": "https://www.aljazeera.com/wp-content/uploads/2025/07/AFP__20250730__68A939F__v1__HighRes__RussiaEarthquakeTsunami-1753864535.jpg?resize=1920%2C1125",
+                        "publishedAt": "2025-07-30T10:00:44Z",
+                        "source": {
+                            "id": "7530d90c9af769eda4cb548f32ed381d",
+                            "name": "Al Jazeera",
+                            "url": "https://www.aljazeera.com"
+                        }
+                    },
+                    {
+                        "id": "935bbc8934da8a57d6b24ec5aa03b9c3",
+                        "title": "Hubble Space Telescope spots rogue planet with a little help from Einstein: 'It was a lucky break'",
+                        "description": "Using the Hubble Space Telescope, astronomers have discovered a new rogue planet that was orphaned from its home planetary system. The discovery was possible with a little luck and some help from Einstein.",
+                        "content": "(Main) An illustration of a rogue planet causing gravitational lensing (Inset) The Hubble Space Telescope in orbit around Earth.\nAstronomers discovered a new rogue planet lurking in archival data gathered by the Hubble Space Telescope, and the find i... [6971 chars]",
+                        "url": "https://www.space.com/astronomy/exoplanets/hubble-space-telescope-spots-rogue-planet-with-a-little-help-from-einstein-it-was-a-lucky-break",
+                        "image": "https://cdn.mos.cms.futurecdn.net/otyZ9XjeBPGLxX4JF2qLSX.png",
+                        "publishedAt": "2025-07-30T10:00:00Z",
+                        "source": {
+                            "id": "024dd4370bda9e6e6791231c2a935d20",
+                            "name": "Space",
+                            "url": "https://www.space.com"
+                        }
+                    },
+                    {
+                        "id": "b3883c6118be8f8cbb924045fa22b089",
+                        "title": "What to know about Toronto Caribbean Carnival’s Grand Parade",
+                        "description": "The Grand Parade at Toronto Caribbean Carnival takes place on Aug. 2 and will feature thousands of “masqueraders in colourful and striking costumes.”",
+                        "content": "Weather Alert\nTake action to protect yourself and others – extreme heat can affect everyone’s health. Determine if you or others around you are at greater risk of heat illness. Check on older adults, those living alone and other at-risk people in-per... [2142 chars]",
+                        "url": "https://www.toronto.com/things-to-do/the-toronto-caribbean-carnivals-colourful-grand-parade-is-this-weekend-and-heres-what-to-know/article_f1db6d85-8a74-585c-908c-e68a36d08147.html",
+                        "image": "https://bloximages.newyork1.vip.townnews.com/toronto.com/content/tncms/assets/v3/editorial/9/92/992de93b-eb33-5b2b-8484-e6163b4b6593/6887c1da9de58.image.jpg?crop=1763%2C926%2C0%2C124&resize=1200%2C630&order=crop%2Cresize",
+                        "publishedAt": "2025-07-30T10:00:00Z",
+                        "source": {
+                            "id": "fe24ef4274d8e24e34a6bb138348bce5",
+                            "name": "Toronto.com",
+                            "url": "https://www.toronto.com"
+                        }
+                    },
+                    {
+                        "id": "834d4e1b20b84fb8b238fa0d4fc35e94",
+                        "title": "National Lottery to SHUT DOWN for 2 days with players unable to buy tickets or claim prizes - exact dates to remember",
+                        "description": "THE National Lottery will shut down for two days to make way for the biggest technology upgrade in the game's 31-year history.Players have been warned",
+                        "content": "THE National Lottery will shut down for two days to make way for the biggest technology upgrade in the game's 31-year history.\nPlayers have been warned that they will not be able to purchase tickets or check numbers in shops across the UK this weeken... [3326 chars]",
+                        "url": "https://www.thesun.co.uk/money/36076584/national-lottery-shutdown-ticket-prize-claim/",
+                        "image": "https://www.thesun.co.uk/wp-content/uploads/2025/07/newspress-collage-9822rdmz5-1753869322871.jpg?1753872939&strip=all&quality=100&w=1920&h=1080&crop=1",
+                        "publishedAt": "2025-07-30T09:56:16Z",
+                        "source": {
+                            "id": "8312b3960d99553247ab475ee7eeed9a",
+                            "name": "The Sun",
+                            "url": "https://www.thesun.co.uk"
+                        }
+                    },
+                    {
+                        "id": "3081c4761b78766310df2751b3193982",
+                        "title": "Gibo, Brawner appeal to Congress: Amend AFP modernization law",
+                        "description": "Department of National Defense (DND) Secretary Gilberto Teodoro Jr. and Armed Forces of the Philippines (AFP) Chief, General Romeo Brawner Jr. urged the...",
+                        "content": "Defense Secretary Gilberto Teodoro Jr. urges the Congress to amend the Armed Forces of the Philippines (AFP) Modernization Act during the second day of the post-SONA discussions in San Juan City on July 30, 2025. (Photo: Martin A. Sadongdong/MANILA B... [3914 chars]",
+                        "url": "https://mb.com.ph/2025/07/30/gibo-brawner-appeal-to-congress-amend-afp-modernization-law",
+                        "image": "https://mb.com.ph/manilabulletin/uploads/images/2025/07/30/30798.webp",
+                        "publishedAt": "2025-07-30T09:55:45Z",
+                        "source": {
+                            "id": "4041b9d9c6df9db2245d952224650739",
+                            "name": "Manila Bulletin",
+                            "url": "https://mb.com.ph"
+                        }
+                    },
+                    {
+                        "id": "b90795fde5b3a4bbfa48248a98909419",
+                        "title": "Gautam Gambhir vs The Oval curator: Ashwin says 'boss, what are you doing?'",
+                        "description": "Cricket News: Tensions flared at The Oval as a heated argument erupted between India's head coach Gautam Gambhir and chief curator Lee Fortis before the crucial fif",
+                        "content": "Gautam Gambhir (Image credit: IANS)\nGo Beyond The Boundary with our YouTube channel. SUBSCRIBE NOW!\nPoll Do you think the heated argument between Gambhir and Fortis will impact the team's performance? Yes, it will create distractions No, they will fo... [2530 chars]",
+                        "url": "https://timesofindia.indiatimes.com/sports/cricket/india-tour-of-england/gautam-gambhir-vs-the-oval-curator-ashwin-says-boss-what-are-you-doing/articleshow/122995026.cms",
+                        "image": "https://static.toiimg.com/thumb/msid-122995164,width-1070,height-580,imgsize-70826,resizemode-75,overlay-toi_sw,pt-32,y_pad-40/photo.jpg",
+                        "publishedAt": "2025-07-30T09:54:00Z",
+                        "source": {
+                            "id": "9c931d3332c3a87c89b804230892aa64",
+                            "name": "Times of India",
+                            "url": "https://timesofindia.indiatimes.com"
+                        }
+                    },
+                    {
+                        "id": "2adccff4e18f553d7c00c2b0902353e4",
+                        "title": "Solon to colleague watching cockfight: Come out, apologize",
+                        "description": "Manila Representative Rolando Valeriano on Wednesday called on his colleague caught watching a cockfight during session to step into the light and apologize.",
+                        "content": "Manila Representative Rolando Valeriano on Wednesday called on his colleague caught watching a cockfight during session to step into the light and apologize.\nValeriano was referring to the member of the House who was photographed and caught on video ... [696 chars]",
+                        "url": "https://www.gmanetwork.com/news/topstories/nation/954279/solon-to-colleague-watching-cockfight-come-out-apologize/story/",
+                        "image": "https://images.gmanews.tv/webpics/2025/07/solon_2025_07_30_17_45_45.GIF",
+                        "publishedAt": "2025-07-30T09:46:19Z",
+                        "source": {
+                            "id": "e4e85d0eeab7f8c342117bbef4241d59",
+                            "name": "GMA Network",
+                            "url": "https://www.gmanetwork.com"
+                        }
+                    }
+        ]
+}
+        </script>
+        <script src="js/main.js"></script>
+    </body>
+
+</html>

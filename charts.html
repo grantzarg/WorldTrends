@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Charts</title>
+        <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="wrapper">
+                <div class="header-logo">
+                    <a href="./index.html">
+                        <img src="assets/logoType.svg" alt="World Trends" />
+                    </a>
+                </div>
+                <nav class="header-menu" role="navigation" aria-label="Main menu">
+                    <a class="header-menu-item active" href="charts.html" aria-current="true">Charts</a>
+                    <a class="header-menu-item" href="index.html" aria-current="false">News</a>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <div class="wrapper">
+                <section class="charts-section">
+                    <h1 class="charts-title">Charts</h1>
+                    
+                    <div class="charts-metrics">
+                        <div class="chart-metric">
+                            <span class="chart-metric-label">Chart 1</span>
+                            <span class="chart-metric-value chart-1">136 GB</span>
+                        </div>
+                        <div class="chart-metric">
+                            <span class="chart-metric-label">Chart 2</span>
+                            <span class="chart-metric-value chart-2">42 GB</span>
+                        </div>
+                    </div>
+                    
+                    <div class="charts-navigation">
+                        <button class="nav-arrow nav-prev" aria-label="Previous month">←</button>
+                        <div class="months-nav">
+                            <button class="month-btn" data-month="aug">Aug, 24</button>
+                            <button class="month-btn active" data-month="sep">Sep, 24</button>
+                            <button class="month-btn" data-month="oct">Oct, 24</button>
+                            <button class="month-btn" data-month="nov">Nov, 24</button>
+                            <button class="month-btn" data-month="dec">Dec, 24</button>
+                            <button class="month-btn" data-month="jan">Jan, 25</button>
+                            <button class="month-btn" data-month="feb">Feb, 25</button>
+                            <button class="month-btn" data-month="mar">Mar, 25</button>
+                            <button class="month-btn" data-month="apr">Apr, 25</button>
+                            <button class="month-btn" data-month="may">May, 25</button>
+                            <button class="month-btn" data-month="jun">Jun, 25</button>
+                        </div>
+                        <button class="nav-arrow nav-next" aria-label="Next month">→</button>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <canvas id="mainChart"></canvas>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="js/charts.js"></script>
+    </body>
+</html> 
